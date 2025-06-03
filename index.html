@@ -43,23 +43,17 @@
       border-radius: 5px;
       cursor: pointer;
     }
-  </style>
-  <script>
-    function openInBackground(form) {
-      const iframe = document.createElement("iframe");
-      iframe.style.display = "none";
-      document.body.appendChild(iframe);
-      iframe.name = "hidden_iframe";
-      form.target = "hidden_iframe";
+    iframe[name="hidden_iframe"] {
+      display: none;
     }
-  </script>
+  </style>
 </head>
 <body>
   <header>
     <img src="lauburu.png" alt="Lauburu Symbol">
     <h1>2025 Class Reunion Store</h1>
     <p>Order your reunion dues and merchandise below. Checkout is handled securely through PayPal.</p>
-    <form target="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post">
+    <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="hidden_iframe">
       <input type="hidden" name="cmd" value="_cart">
       <input type="hidden" name="business" value="gaviolafamilyreunion@gmail.com">
       <input type="hidden" name="display" value="1">
@@ -70,7 +64,7 @@
   <div class="container">
     <div class="product">
       <h3>Reunion Fee - $50/person</h3>
-      <form action="https://www.paypal.com/cgi-bin/webscr" method="post" onsubmit="openInBackground(this)">
+      <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="hidden_iframe">
         <input type="hidden" name="cmd" value="_cart">
         <input type="hidden" name="add" value="1">
         <input type="hidden" name="business" value="gaviolafamilyreunion@gmail.com">
@@ -84,7 +78,7 @@
 
     <div class="product">
       <h3>Carla T Shirt - $10</h3>
-      <form action="https://www.paypal.com/cgi-bin/webscr" method="post" onsubmit="openInBackground(this)">
+      <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="hidden_iframe">
         <input type="hidden" name="cmd" value="_cart">
         <input type="hidden" name="add" value="1">
         <input type="hidden" name="business" value="gaviolafamilyreunion@gmail.com">
@@ -104,5 +98,7 @@
       </form>
     </div>
   </div>
+
+  <iframe name="hidden_iframe"></iframe>
 </body>
 </html>
