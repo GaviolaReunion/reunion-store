@@ -4,116 +4,97 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Gaviola Reunion Store with Cart</title>
+  <title>2025 Class Reunion Store</title>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
   <style>
-    body { font-family: 'Montserrat', sans-serif; display: flex; margin: 0; }
-    .content { padding: 20px; flex: 1; }
-    .product { background: #fff; border-radius: 12px; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05); padding: 20px; margin-bottom: 30px; }
-    .cart-sidebar { width: 300px; background: #f0f0f0; padding: 20px; border-left: 1px solid #ccc; height: 100vh; overflow-y: auto; }
-    .cart-sidebar h2 { font-size: 1.2rem; margin-top: 0; }
-    .cart-item { display: flex; justify-content: space-between; margin-bottom: 10px; }
-    .cart-item input { width: 40px; }
-    button { padding: 8px 16px; margin-top: 10px; background: #004643; color: white; border: none; border-radius: 5px; cursor: pointer; }
+    body {
+      font-family: 'Montserrat', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #fafafa;
+    }
+    header {
+      text-align: center;
+      padding: 20px;
+      background-color: #004643;
+      color: white;
+    }
+    header img {
+      max-width: 100px;
+      display: block;
+      margin: 0 auto 10px;
+    }
+    .container {
+      padding: 20px;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .product {
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      margin-bottom: 20px;
+    }
+    button {
+      padding: 8px 16px;
+      background: #004643;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
   </style>
 </head>
 <body>
-  <div class="content">
-    <h1>Gaviola Reunion Store</h1>
+  <header>
+    <img src="lauburu.png" alt="Lauburu Symbol">
+    <h1>2025 Class Reunion Store</h1>
+    <p>Order your reunion dues and merchandise below. Checkout is handled securely through PayPal.</p>
+    <form target="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post">
+      <input type="hidden" name="cmd" value="_cart">
+      <input type="hidden" name="business" value="gaviolafamilyreunion@gmail.com">
+      <input type="hidden" name="display" value="1">
+      <button type="submit">View Cart</button>
+    </form>
+  </header>
+
+  <div class="container">
+    <div class="product">
+      <h3>Reunion Fee - $50/person</h3>
+      <form action="https://www.paypal.com/cgi-bin/webscr" method="post">
+        <input type="hidden" name="cmd" value="_cart">
+        <input type="hidden" name="add" value="1">
+        <input type="hidden" name="business" value="gaviolafamilyreunion@gmail.com">
+        <input type="hidden" name="item_name" value="Reunion Fee">
+        <input type="hidden" name="amount" value="50">
+        <label>Number of People: <input type="number" name="quantity" value="1" min="1"></label>
+        <br><br>
+        <button type="submit">Add to Cart</button>
+      </form>
+    </div>
+
     <div class="product">
       <h3>Carla T Shirt - $10</h3>
-      <select id="carla-shirt-size">
-        <option>SM</option>
-        <option>MD</option>
-        <option>LG</option>
-        <option>XL</option>
-        <option>XXL</option>
-      </select>
-      <button onclick="addToCart('Carla T Shirt', 10, document.getElementById('carla-shirt-size').value)">Add to Cart</button>
-    </div>
-    <div class="product">
-      <h3>Carla Sweatshirt - $10</h3>
-      <select id="carla-sweatshirt-size">
-        <option>SM</option>
-        <option>MD</option>
-        <option>LG</option>
-        <option>XL</option>
-        <option>XXL</option>
-      </select>
-      <button onclick="addToCart('Carla Sweatshirt', 10, document.getElementById('carla-sweatshirt-size').value)">Add to Cart</button>
-    </div>
-  </div>
-  <div class="cart-sidebar">
-    <h2>Your Cart</h2>
-    <div id="cart-items"></div>
-    <h3>Total: $<span id="cart-total">0</span></h3>
-    <button onclick="checkout()">Checkout with PayPal</button>
-  </div>
-
-  <script>
-    const cart = [];
-
-    function addToCart(name, price, option) {
-      const item = cart.find(i => i.name === name && i.option === option);
-      if (item) {
-        item.quantity++;
-      } else {
-        cart.push({ name, price, option, quantity: 1 });
-      }
-      renderCart();
-    }
-
-    function renderCart() {
-      const cartItemsDiv = document.getElementById("cart-items");
-      cartItemsDiv.innerHTML = "";
-      let total = 0;
-      cart.forEach((item, index) => {
-        total += item.price * item.quantity;
-        cartItemsDiv.innerHTML += `
-          <div class="cart-item">
-            <div>
-              ${item.name} (${item.option})
-              <br />
-              <input type="number" value="${item.quantity}" min="1" onchange="updateQuantity(${index}, this.value)" />
-            </div>
-            <button onclick="removeItem(${index})">✕</button>
-          </div>
-        `;
-      });
-      document.getElementById("cart-total").textContent = total.toFixed(2);
-    }
-
-    function updateQuantity(index, value) {
-      cart[index].quantity = parseInt(value);
-      renderCart();
-    }
-
-    function removeItem(index) {
-      cart.splice(index, 1);
-      renderCart();
-    }
-
-    function checkout() {
-      const form = document.createElement("form");
-      form.action = "https://www.paypal.com/cgi-bin/webscr";
-      form.method = "post";
-      form.target = "_blank";
-      form.innerHTML = `
+      <form action="https://www.paypal.com/cgi-bin/webscr" method="post">
         <input type="hidden" name="cmd" value="_cart">
-        <input type="hidden" name="upload" value="1">
+        <input type="hidden" name="add" value="1">
         <input type="hidden" name="business" value="gaviolafamilyreunion@gmail.com">
-      `;
-      cart.forEach((item, i) => {
-        form.innerHTML += `
-          <input type="hidden" name="item_name_${i + 1}" value="${item.name} - ${item.option}">
-          <input type="hidden" name="amount_${i + 1}" value="${item.price}">
-          <input type="hidden" name="quantity_${i + 1}" value="${item.quantity}">
-        `;
-      });
-      document.body.appendChild(form);
-      form.submit();
-      document.body.removeChild(form);
-    }
-  </script>
+        <input type="hidden" name="item_name" value="Carla T Shirt">
+        <input type="hidden" name="amount" value="10">
+        <label>Size:
+          <select name="on0">
+            <option value="SM">SM</option>
+            <option value="MD">MD</option>
+            <option value="LG">LG</option>
+            <option value="XL">XL</option>
+            <option value="XXL">XXL</option>
+          </select>
+        </label>
+        <br><br>
+        <button type="submit">Add to Cart</button>
+      </form>
+    </div>
+  </div>
 </body>
 </html>
