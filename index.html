@@ -2,118 +2,118 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Gaviola Reunion Store</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gaviola Reunion Store with Cart</title>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
   <style>
-    body { font-family: 'Montserrat', sans-serif; background-color: #f9f9f9; color: #333; padding: 20px; max-width: 900px; margin: auto; }
-    header { text-align: center; margin-bottom: 40px; }
-    header img { width: 80px; margin-bottom: 10px; }
-    h1 { font-size: 2.5rem; margin-bottom: 10px; }
+    body { font-family: 'Montserrat', sans-serif; display: flex; margin: 0; }
+    .content { padding: 20px; flex: 1; }
     .product { background: #fff; border-radius: 12px; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05); padding: 20px; margin-bottom: 30px; }
-    .product img { width: 100%; max-width: 250px; border-radius: 8px; margin-bottom: 15px; }
-    .options { margin-bottom: 10px; }
-    .btn { background-color: #004643; color: #fff; border: none; padding: 10px 20px; font-size: 1rem; border-radius: 6px; cursor: pointer; }
-    .btn:hover { background-color: #007c74; }
-    footer { text-align: center; font-size: 0.9rem; color: #888; margin-top: 50px; }
+    .cart-sidebar { width: 300px; background: #f0f0f0; padding: 20px; border-left: 1px solid #ccc; height: 100vh; overflow-y: auto; }
+    .cart-sidebar h2 { font-size: 1.2rem; margin-top: 0; }
+    .cart-item { display: flex; justify-content: space-between; margin-bottom: 10px; }
+    .cart-item input { width: 40px; }
+    button { padding: 8px 16px; margin-top: 10px; background: #004643; color: white; border: none; border-radius: 5px; cursor: pointer; }
   </style>
 </head>
 <body>
-  <header>
-    <img src="lauburu.png" alt="Lauburu">
-    <h1>Gaviola Family Reunion Store</h1>
-    <p>Use the options below to purchase your reunion fee and gear. Checkout is securely handled through PayPal.</p>
-  </header>
+  <div class="content">
+    <h1>Gaviola Reunion Store</h1>
+    <div class="product">
+      <h3>Carla T Shirt - $10</h3>
+      <select id="carla-shirt-size">
+        <option>SM</option>
+        <option>MD</option>
+        <option>LG</option>
+        <option>XL</option>
+        <option>XXL</option>
+      </select>
+      <button onclick="addToCart('Carla T Shirt', 10, document.getElementById('carla-shirt-size').value)">Add to Cart</button>
+    </div>
+    <div class="product">
+      <h3>Carla Sweatshirt - $10</h3>
+      <select id="carla-sweatshirt-size">
+        <option>SM</option>
+        <option>MD</option>
+        <option>LG</option>
+        <option>XL</option>
+        <option>XXL</option>
+      </select>
+      <button onclick="addToCart('Carla Sweatshirt', 10, document.getElementById('carla-sweatshirt-size').value)">Add to Cart</button>
+    </div>
+  </div>
+  <div class="cart-sidebar">
+    <h2>Your Cart</h2>
+    <div id="cart-items"></div>
+    <h3>Total: $<span id="cart-total">0</span></h3>
+    <button onclick="checkout()">Checkout with PayPal</button>
+  </div>
 
-  <section class="product">
-    <h2>🧾 Reunion Fee – $50</h2>
-    <form method="post" action="https://www.paypal.com/cgi-bin/webscr">
-      <input type="hidden" name="business" value="gaviolafamilyreunion@gmail.com">
-      <input type="hidden" name="cmd" value="_cart">
-      <input type="hidden" name="add" value="1">
-      <input type="hidden" name="item_name" value="Reunion Fee">
-      <input type="hidden" name="amount" value="50.00">
-      <input type="hidden" name="currency_code" value="USD">
-      <input class="btn" type="submit" value="Add to Cart">
-    </form>
-  </section>
-<section class="product">
-<h2>Antone Shirt – $10</h2>
-<p>Sick</p>
-<img src="https://via.placeholder.com/250x250?text=Antone+Shirt" alt="Antone Shirt">
-<form method="post" action="https://www.paypal.com/cgi-bin/webscr">
-<input type="hidden" name="business" value="gaviolafamilyreunion@gmail.com">
-<input type="hidden" name="cmd" value="_cart">
-<input type="hidden" name="add" value="1">
-<input type="hidden" name="item_name" value="Antone Shirt">
-<input type="hidden" name="amount" value="10">
-<input type="hidden" name="currency_code" value="USD">
-<div class="options">Size: <select name="on0">
-<option value="SM">SM</option>
-<option value="MD">MD</option>
-<option value="LG">LG</option>
-<option value="XL">XL</option>
-<option value="XXL">XXL</option>
-</select></div>
-<input class="btn" type="submit" value="Add to Cart">
-</form>
-</section>
-<section class="product">
-<h2>Carla Sweatshirt – $10</h2>
-<p>Shitty but hot</p>
-<img src="https://via.placeholder.com/250x250?text=Carla+Sweatshirt" alt="Carla Sweatshirt">
-<form method="post" action="https://www.paypal.com/cgi-bin/webscr">
-<input type="hidden" name="business" value="gaviolafamilyreunion@gmail.com">
-<input type="hidden" name="cmd" value="_cart">
-<input type="hidden" name="add" value="1">
-<input type="hidden" name="item_name" value="Carla Sweatshirt">
-<input type="hidden" name="amount" value="10">
-<input type="hidden" name="currency_code" value="USD">
-<div class="options">Size: <select name="on0">
-<option value="SM">SM</option>
-<option value="MD">MD</option>
-<option value="LG">LG</option>
-<option value="XL">XL</option>
-<option value="XXL">XXL</option>
-</select></div>
-<input class="btn" type="submit" value="Add to Cart">
-</form>
-</section>
-<section class="product">
-<h2>Carla T Shirt – $10</h2>
-<p>Shitty</p>
-<img src="https://via.placeholder.com/250x250?text=Carla+T+Shirt" alt="Carla T Shirt">
-<form method="post" action="https://www.paypal.com/cgi-bin/webscr">
-<input type="hidden" name="business" value="gaviolafamilyreunion@gmail.com">
-<input type="hidden" name="cmd" value="_cart">
-<input type="hidden" name="add" value="1">
-<input type="hidden" name="item_name" value="Carla T Shirt">
-<input type="hidden" name="amount" value="10">
-<input type="hidden" name="currency_code" value="USD">
-<div class="options">Size: <select name="on0">
-<option value="SM">SM</option>
-<option value="MD">MD</option>
-<option value="LG">LG</option>
-<option value="XL">XL</option>
-<option value="XXL">XXL</option>
-</select></div>
-<input class="btn" type="submit" value="Add to Cart">
-</form>
-</section>
+  <script>
+    const cart = [];
 
-  <section class="product">
-    <h2>🛒 View Cart</h2>
-    <form method="post" action="https://www.paypal.com/cgi-bin/webscr">
-      <input type="hidden" name="cmd" value="_cart">
-      <input type="hidden" name="business" value="gaviolafamilyreunion@gmail.com">
-      <input type="hidden" name="display" value="1">
-      <input class="btn" type="submit" value="View Cart / Checkout">
-    </form>
-  </section>
+    function addToCart(name, price, option) {
+      const item = cart.find(i => i.name === name && i.option === option);
+      if (item) {
+        item.quantity++;
+      } else {
+        cart.push({ name, price, option, quantity: 1 });
+      }
+      renderCart();
+    }
 
-  <footer>
-    &copy; 2025 Gaviola Family Reunion. Basque pride. 💚❤️🧡
-  </footer>
+    function renderCart() {
+      const cartItemsDiv = document.getElementById("cart-items");
+      cartItemsDiv.innerHTML = "";
+      let total = 0;
+      cart.forEach((item, index) => {
+        total += item.price * item.quantity;
+        cartItemsDiv.innerHTML += `
+          <div class="cart-item">
+            <div>
+              ${item.name} (${item.option})
+              <br />
+              <input type="number" value="${item.quantity}" min="1" onchange="updateQuantity(${index}, this.value)" />
+            </div>
+            <button onclick="removeItem(${index})">✕</button>
+          </div>
+        `;
+      });
+      document.getElementById("cart-total").textContent = total.toFixed(2);
+    }
+
+    function updateQuantity(index, value) {
+      cart[index].quantity = parseInt(value);
+      renderCart();
+    }
+
+    function removeItem(index) {
+      cart.splice(index, 1);
+      renderCart();
+    }
+
+    function checkout() {
+      const form = document.createElement("form");
+      form.action = "https://www.paypal.com/cgi-bin/webscr";
+      form.method = "post";
+      form.target = "_blank";
+      form.innerHTML = `
+        <input type="hidden" name="cmd" value="_cart">
+        <input type="hidden" name="upload" value="1">
+        <input type="hidden" name="business" value="gaviolafamilyreunion@gmail.com">
+      `;
+      cart.forEach((item, i) => {
+        form.innerHTML += `
+          <input type="hidden" name="item_name_${i + 1}" value="${item.name} - ${item.option}">
+          <input type="hidden" name="amount_${i + 1}" value="${item.price}">
+          <input type="hidden" name="quantity_${i + 1}" value="${item.quantity}">
+        `;
+      });
+      document.body.appendChild(form);
+      form.submit();
+      document.body.removeChild(form);
+    }
+  </script>
 </body>
 </html>
