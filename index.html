@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>2025 Class Reunion Store</title>
+  <title>2025 Gaviola Family Reunion</title>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
   <style>
     body {
@@ -35,6 +35,11 @@
       box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
       margin-bottom: 20px;
     }
+    .product img {
+      max-width: 200px;
+      display: block;
+      margin-bottom: 10px;
+    }
     button {
       padding: 8px 16px;
       background: #004643;
@@ -46,59 +51,99 @@
     iframe[name="hidden_iframe"] {
       display: none;
     }
+    .notice {
+      background-color: #ffeecc;
+      padding: 10px;
+      border-left: 5px solid #ffaa00;
+      margin-bottom: 20px;
+      font-weight: bold;
+    }
   </style>
 </head>
 <body>
   <header>
     <img src="lauburu.png" alt="Lauburu Symbol">
-    <h1>2025 Class Reunion Store</h1>
-    <p>Order your reunion dues and merchandise below. Checkout is handled securely through PayPal.</p>
-    <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="hidden_iframe">
-      <input type="hidden" name="cmd" value="_cart">
-      <input type="hidden" name="business" value="gaviolafamilyreunion@gmail.com">
-      <input type="hidden" name="display" value="1">
-      <button type="submit">View Cart</button>
-    </form>
+    <h1>2025 Gaviola Family Reunion</h1>
+    <p>You can pay with a credit or debit card; a PayPal account is not required.</p>
+    <button onclick="window.open('https://www.paypal.com/cgi-bin/webscr?cmd=_cart&business=gaviolafamilyreunion@gmail.com&display=1', '_blank')">View Cart</button>
   </header>
 
   <div class="container">
+    <div class="notice">
+      Clothing orders will be accepted until <strong>June 17</strong>. Reunion fees can be paid until <strong>July 10</strong>.
+    </div>
+
+    <!-- Reunion Fees -->
     <div class="product">
-      <h3>Reunion Fee - $50/person</h3>
+      <h3>Reunion Fee (12 and over) - $15 per person</h3>
       <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="hidden_iframe">
         <input type="hidden" name="cmd" value="_cart">
         <input type="hidden" name="add" value="1">
         <input type="hidden" name="business" value="gaviolafamilyreunion@gmail.com">
-        <input type="hidden" name="item_name" value="Reunion Fee">
-        <input type="hidden" name="amount" value="50">
-        <label>Number of People: <input type="number" name="quantity" value="1" min="1"></label>
+        <input type="hidden" name="item_name" value="Reunion Fee - Adult (12+)">
+        <input type="hidden" name="amount" value="15">
+        <label>Quantity: <input type="number" name="quantity" value="1" min="1"></label>
         <br><br>
         <button type="submit">Add to Cart</button>
       </form>
     </div>
 
     <div class="product">
-      <h3>Carla T Shirt - $10</h3>
+      <h3>Reunion Fee (Under 12) - Free</h3>
       <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="hidden_iframe">
         <input type="hidden" name="cmd" value="_cart">
         <input type="hidden" name="add" value="1">
         <input type="hidden" name="business" value="gaviolafamilyreunion@gmail.com">
-        <input type="hidden" name="item_name" value="Carla T Shirt">
-        <input type="hidden" name="amount" value="10">
-        <label>Size:
-          <select name="on0">
-            <option value="SM">SM</option>
-            <option value="MD">MD</option>
-            <option value="LG">LG</option>
-            <option value="XL">XL</option>
-            <option value="XXL">XXL</option>
-          </select>
-        </label>
+        <input type="hidden" name="item_name" value="Reunion Fee - Child (Under 12)">
+        <input type="hidden" name="amount" value="0">
+        <label>Quantity: <input type="number" name="quantity" value="1" min="1"></label>
         <br><br>
         <button type="submit">Add to Cart</button>
       </form>
+    </div>
+
+    <!-- CLOTHING PRODUCTS PLACEHOLDER -->
+    <div class="product clothing">
+      <h3>T Shirt Style 1</h3>
+      <img src="tshirt_style1.png" alt="T Shirt Style 1">
+    </div>
+
+    <div class="product clothing">
+      <h3>T Shirt Style 2</h3>
+      <img src="tshirt_style2.png" alt="T Shirt Style 2">
+    </div>
+
+    <div class="product clothing">
+      <h3>Hoodie Style 1</h3>
+      <img src="hoodie_style1.png" alt="Hoodie Style 1">
+    </div>
+
+    <div class="product clothing">
+      <h3>Hoodie Style 2</h3>
+      <img src="hoodie_style2.png" alt="Hoodie Style 2">
+    </div>
+
+    <div class="product clothing">
+      <h3>Hat Style 1</h3>
+      <img src="hat_style1.png" alt="Hat Style 1">
+    </div>
+
+    <div class="product clothing">
+      <h3>Hat Style 2</h3>
+      <img src="hat_style2.png" alt="Hat Style 2">
     </div>
   </div>
 
   <iframe name="hidden_iframe"></iframe>
+
+  <script>
+    const now = new Date();
+    const clothingDeadline = new Date('2025-06-18');
+    if (now >= clothingDeadline) {
+      document.querySelectorAll('.product.clothing').forEach(prod => {
+        prod.innerHTML = '<strong>Clothing orders are now closed.</strong>';
+      });
+    }
+  </script>
 </body>
 </html>
