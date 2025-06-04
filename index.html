@@ -81,6 +81,53 @@
   </style>
 </head>
 <body>
-  <!-- HTML content trimmed for brevity -->
+  <header>
+    <img src="lauburu.png" alt="Lauburu Symbol">
+    <h1>2025 Gaviola Family Reunion</h1>
+    <p>You can pay with a credit or debit card; a PayPal account is not required.</p>
+  </header>
+
+  <div class="cart-buttons">
+    <button onclick="window.open('https://www.paypal.com/cgi-bin/webscr?cmd=_cart&business=gaviolafamilyreunion@gmail.com&display=1', '_blank')">View Cart</button>
+  </div>
+
+  <div class="container">
+    <div class="notice">
+      Clothing orders will be accepted until <strong>June 17</strong>. Reunion fees can be paid until <strong>July 10</strong>.
+    </div>
+
+    <h2>Reunion Fees</h2>
+    <div class="product">
+      <h3>Reunion Fee (12 and over) - $15 per person</h3>
+      <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="hidden_iframe">
+        <input type="hidden" name="cmd" value="_cart">
+        <input type="hidden" name="add" value="1">
+        <input type="hidden" name="business" value="gaviolafamilyreunion@gmail.com">
+        <input type="hidden" name="item_name" value="Reunion Fee - Adult (12+)">
+        <input type="hidden" name="amount" value="15">
+        <label>Quantity: <input type="number" name="quantity" value="1" min="1"></label><br>
+        <button type="submit">Add to Cart</button>
+      </form>
+    </div>
+
+    <div class="product">
+      <h3>Reunion Fee (Under 12) - Free</h3>
+      <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="hidden_iframe">
+        <input type="hidden" name="cmd" value="_cart">
+        <input type="hidden" name="add" value="1">
+        <input type="hidden" name="business" value="gaviolafamilyreunion@gmail.com">
+        <input type="hidden" name="item_name" value="Reunion Fee - Child (Under 12)">
+        <input type="hidden" name="amount" value="0">
+        <label>Quantity: <input type="number" name="quantity" value="1" min="1"></label><br>
+        <button type="submit">Add to Cart</button>
+      </form>
+    </div>
+  </div>
+
+  <div class="cart-buttons">
+    <button onclick="window.open('https://www.paypal.com/cgi-bin/webscr?cmd=_cart&business=gaviolafamilyreunion@gmail.com&display=1', '_blank')">View Cart</button>
+  </div>
+
+  <iframe name="hidden_iframe"></iframe>
 </body>
 </html>
