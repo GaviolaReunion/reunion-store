@@ -1,173 +1,150 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>2025 Gaviola Family Reunion</title>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <style>
-    body {
-      font-family: 'Montserrat', sans-serif;
-      margin: 0;
-      padding: 0;
-      background: #fafafa;
-    }
-    header {
-      text-align: center;
-      padding: 20px;
-      background-color: #004643;
-      color: white;
-    }
-    header img {
-      max-width: 100px;
-      display: block;
-      margin: 0 auto 10px;
-    }
-    .container {
-      padding: 20px;
-      max-width: 800px;
-      margin: 0 auto;
-    }
-    .product {
-      background: white;
-      padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-      margin-bottom: 20px;
-    }
-    .product img {
-      max-width: 200px;
-      display: block;
-      margin-bottom: 10px;
-    }
-    button {
-      padding: 8px 16px;
-      background: #004643;
-      color: white;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      margin-top: 10px;
-    }
-    .cart-buttons {
-      text-align: center;
-      margin: 20px 0;
-    }
-    iframe[name="hidden_iframe"] {
-      display: none;
-    }
-    .notice {
-      background-color: #ffeecc;
-      padding: 10px;
-      border-left: 5px solid #ffaa00;
-      margin-bottom: 20px;
-      font-weight: bold;
-    }
-    h2 {
-      border-bottom: 2px solid #ccc;
-      padding-bottom: 5px;
-    }
-    select, input[type=number] {
-      margin-top: 5px;
-      display: block;
-    }
-    .instructions {
-      font-size: 0.95em;
-      background: #e7f3ff;
-      border-left: 5px solid #2196F3;
-      padding: 10px;
-      margin-bottom: 20px;
-    }
+    body { font-family: Arial, sans-serif; margin: 0; padding: 1rem; background: #f8f8f8; }
+    header { text-align: center; padding-bottom: 1rem; }
+    h1 { margin: 0; }
+    .product { background: white; padding: 1rem; margin: 1rem auto; border-radius: 8px; max-width: 600px; box-shadow: 0 0 10px rgba(0,0,0,0.05); }
+    .product img { max-width: 100%; }
+    form { margin-top: 0.5rem; }
+    select, input[type=number] { padding: 0.4rem; margin-top: 0.5rem; }
+    button { padding: 0.5rem 1rem; margin-top: 0.5rem; background: #004643; color: white; border: none; cursor: pointer; border-radius: 4px; }
+    .section-title { margin-top: 2rem; font-size: 1.5rem; border-bottom: 2px solid #ccc; padding-bottom: 0.25rem; }
   </style>
 </head>
 <body>
   <header>
-    <img src="lauburu.png" alt="Lauburu Symbol">
     <h1>2025 Gaviola Family Reunion</h1>
-    <p>You can pay with a credit or debit card; a PayPal account is not required.</p>
+    <p>You can pay with a credit or debit card — a PayPal account is not required.</p>
+    <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_cart&business=gaviolafamilyreunion@gmail.com&display=1" target="_blank">
+      <button>View Cart</button>
+    </a>
   </header>
-
-  <div class="cart-buttons">
-    <button onclick="window.open('https://www.paypal.com/cgi-bin/webscr?cmd=_cart&business=gaviolafamilyreunion@gmail.com&display=1', '_blank')">View Cart</button>
-  </div>
-
-  <div class="container">
-    <div class="notice">
-      Clothing orders will be accepted until <strong>June 17</strong>. Reunion fees can be paid until <strong>July 10</strong>.
-    </div>
-
-    <h2>Reunion Fees</h2>
+  <main>
+    <div class="section-title">Reunion Fees</div>
     <div class="product">
-      <h3>Reunion Fee (12 and over) - $15 per person</h3>
+      <h3>Reunion Fee (per person) - $50</h3>
       <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="hidden_iframe">
         <input type="hidden" name="cmd" value="_cart">
         <input type="hidden" name="add" value="1">
         <input type="hidden" name="business" value="gaviolafamilyreunion@gmail.com">
-        <input type="hidden" name="item_name" value="Reunion Fee - Adult (12+)">
-        <input type="hidden" name="amount" value="15">
-        <label>Quantity: <input type="number" name="quantity" value="1" min="1"></label><br>
+        <input type="hidden" name="item_name" value="Reunion Fee">
+        <input type="hidden" name="amount" value="50">
+        Quantity: <input type="number" name="quantity" value="1" min="1"><br>
         <button type="submit">Add to Cart</button>
       </form>
     </div>
 
+    <div class="section-title">T-Shirts</div>
+
     <div class="product">
-      <h3>Reunion Fee (Under 12) - Free</h3>
+      <h3>T Shirt Style 1</h3>
+      <img src="tshirt1.png" alt="T Shirt Style 1"/>
       <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="hidden_iframe">
         <input type="hidden" name="cmd" value="_cart">
         <input type="hidden" name="add" value="1">
         <input type="hidden" name="business" value="gaviolafamilyreunion@gmail.com">
-        <input type="hidden" name="item_name" value="Reunion Fee - Child (Under 12)">
-        <input type="hidden" name="amount" value="0">
-        <label>Quantity: <input type="number" name="quantity" value="1" min="1"></label><br>
+        <input type="hidden" name="item_name" value="T Shirt Style 1">
+        Size:
+        <select name="on0">
+    <option value="NB">NB - $15.00</option><option value="6M">6M - $15.00</option><option value="12M">12M - $15.00</option><option value="18M">18M - $15.00</option><option value="2T">2T - $15.00</option><option value="3T">3T - $15.00</option><option value="4T">4T - $15.00</option><option value="5T">5T - $15.00</option><option value="Youth XS">Youth XS - $15.00</option><option value="Youth S">Youth S - $15.00</option><option value="Youth M">Youth M - $15.00</option><option value="Youth L">Youth L - $15.00</option><option value="Youth XL">Youth XL - $15.00</option><option value="XS">XS - $20.00</option><option value="SM">SM - $20.00</option><option value="MD">MD - $20.00</option><option value="LG">LG - $20.00</option><option value="XL">XL - $20.00</option><option value="2XL">2XL - $25.00</option><option value="3XL">3XL - $25.00</option><option value="4XL">4XL - $25.00</option><option value="5XL">5XL - $25.00</option>
+        </select><br>
+        Quantity: <input type="number" name="quantity" value="1" min="1"><br>
         <button type="submit">Add to Cart</button>
       </form>
     </div>
-
-    <h2>T-Shirts</h2>
-    <div class="instructions">Select a size and quantity for each item you want to purchase. Add each size separately to the cart if you want multiple sizes.</div>
+    
     <div class="product">
-      <h3>T-Shirt Style 1</h3>
-      <img src="tshirt1.png" alt="T-Shirt Style 1">
+      <h3>T Shirt Style 2</h3>
+      <img src="tshirt2.png" alt="T Shirt Style 2"/>
       <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="hidden_iframe">
         <input type="hidden" name="cmd" value="_cart">
         <input type="hidden" name="add" value="1">
         <input type="hidden" name="business" value="gaviolafamilyreunion@gmail.com">
-        <input type="hidden" name="item_name" value="T-Shirt Style 1">
-        <label>Size:
-          <select name="on0">
-            <option value="SM">SM - $20</option>
-            <option value="MD">MD - $20</option>
-            <option value="LG">LG - $20</option>
-          </select>
-        </label>
-        <label>Quantity: <input type="number" name="quantity" value="1" min="1"></label>
+        <input type="hidden" name="item_name" value="T Shirt Style 2">
+        Size:
+        <select name="on0">
+    <option value="NB">NB - $15.00</option><option value="6M">6M - $15.00</option><option value="12M">12M - $15.00</option><option value="18M">18M - $15.00</option><option value="2T">2T - $15.00</option><option value="3T">3T - $15.00</option><option value="4T">4T - $15.00</option><option value="5T">5T - $15.00</option><option value="Youth XS">Youth XS - $15.00</option><option value="Youth S">Youth S - $15.00</option><option value="Youth M">Youth M - $15.00</option><option value="Youth L">Youth L - $15.00</option><option value="Youth XL">Youth XL - $15.00</option><option value="XS">XS - $20.00</option><option value="SM">SM - $20.00</option><option value="MD">MD - $20.00</option><option value="LG">LG - $20.00</option><option value="XL">XL - $20.00</option><option value="2XL">2XL - $25.00</option><option value="3XL">3XL - $25.00</option><option value="4XL">4XL - $25.00</option><option value="5XL">5XL - $25.00</option>
+        </select><br>
+        Quantity: <input type="number" name="quantity" value="1" min="1"><br>
         <button type="submit">Add to Cart</button>
       </form>
     </div>
-
+    <div class="section-title">Hoodies</div>
+    <div class="product">
+      <h3>Hoodie Style 1</h3>
+      <img src="hoodie1.png" alt="Hoodie Style 1"/>
+      <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="hidden_iframe">
+        <input type="hidden" name="cmd" value="_cart">
+        <input type="hidden" name="add" value="1">
+        <input type="hidden" name="business" value="gaviolafamilyreunion@gmail.com">
+        <input type="hidden" name="item_name" value="Hoodie Style 1">
+        Size:
+        <select name="on0">
+    <option value="Youth XS">Youth XS - $30.00</option><option value="Youth S">Youth S - $30.00</option><option value="Youth M">Youth M - $30.00</option><option value="Youth L">Youth L - $30.00</option><option value="Youth XL">Youth XL - $30.00</option><option value="XS">XS - $37.00</option><option value="SM">SM - $37.00</option><option value="MD">MD - $37.00</option><option value="LG">LG - $37.00</option><option value="XL">XL - $37.00</option><option value="2XL">2XL - $41.00</option><option value="3XL">3XL - $41.00</option>
+        </select><br>
+        Quantity: <input type="number" name="quantity" value="1" min="1"><br>
+        <button type="submit">Add to Cart</button>
+      </form>
+    </div>
+    
+    <div class="product">
+      <h3>Hoodie Style 2</h3>
+      <img src="hoodie2.png" alt="Hoodie Style 2"/>
+      <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="hidden_iframe">
+        <input type="hidden" name="cmd" value="_cart">
+        <input type="hidden" name="add" value="1">
+        <input type="hidden" name="business" value="gaviolafamilyreunion@gmail.com">
+        <input type="hidden" name="item_name" value="Hoodie Style 2">
+        Size:
+        <select name="on0">
+    <option value="Youth XS">Youth XS - $30.00</option><option value="Youth S">Youth S - $30.00</option><option value="Youth M">Youth M - $30.00</option><option value="Youth L">Youth L - $30.00</option><option value="Youth XL">Youth XL - $30.00</option><option value="XS">XS - $37.00</option><option value="SM">SM - $37.00</option><option value="MD">MD - $37.00</option><option value="LG">LG - $37.00</option><option value="XL">XL - $37.00</option><option value="2XL">2XL - $41.00</option><option value="3XL">3XL - $41.00</option>
+        </select><br>
+        Quantity: <input type="number" name="quantity" value="1" min="1"><br>
+        <button type="submit">Add to Cart</button>
+      </form>
+    </div>
+    <div class="section-title">Hats</div>
     <div class="product">
       <h3>Hat Style 1</h3>
-      <img src="hat1.png" alt="Hat Style 1">
+      <img src="hat1.png" alt="Hat Style 1"/>
       <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="hidden_iframe">
         <input type="hidden" name="cmd" value="_cart">
         <input type="hidden" name="add" value="1">
         <input type="hidden" name="business" value="gaviolafamilyreunion@gmail.com">
         <input type="hidden" name="item_name" value="Hat Style 1">
-        <label>Size:
-          <select name="on0">
-            <option value="One Size">One Size - $30</option>
-          </select>
-        </label>
-        <label>Quantity: <input type="number" name="quantity" value="1" min="1"></label>
+        Size:
+        <select name="on0">
+    <option value="One Size">One Size - $30.00</option>
+        </select><br>
+        Quantity: <input type="number" name="quantity" value="1" min="1"><br>
         <button type="submit">Add to Cart</button>
       </form>
     </div>
-  </div>
-
-  <div class="cart-buttons">
-    <button onclick="window.open('https://www.paypal.com/cgi-bin/webscr?cmd=_cart&business=gaviolafamilyreunion@gmail.com&display=1', '_blank')">View Cart</button>
-  </div>
-
-  <iframe name="hidden_iframe"></iframe>
+    
+    <div class="product">
+      <h3>Hat Style 2</h3>
+      <img src="hat2.png" alt="Hat Style 2"/>
+      <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="hidden_iframe">
+        <input type="hidden" name="cmd" value="_cart">
+        <input type="hidden" name="add" value="1">
+        <input type="hidden" name="business" value="gaviolafamilyreunion@gmail.com">
+        <input type="hidden" name="item_name" value="Hat Style 2">
+        Size:
+        <select name="on0">
+    <option value="One Size">One Size - $30.00</option>
+        </select><br>
+        Quantity: <input type="number" name="quantity" value="1" min="1"><br>
+        <button type="submit">Add to Cart</button>
+      </form>
+    </div>
+    
+  </main>
+  <iframe name="hidden_iframe" style="display:none;"></iframe>
 </body>
 </html>
