@@ -3,27 +3,17 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>2025 Gaviola Family Reunion</title>
-  <link rel="stylesheet" href="styles.css" />
+  <title>2025 Gaviola Family Reunion Store</title>
+  <script src="products.js" defer></script>
+  <script src="script.js" defer></script>
+  <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
-  <header>
-    <img src="lauburu.png" alt="Lauburu Symbol" class="header-logo"/>
-    <h1>2025 Gaviola Family Reunion</h1>
-    <p>Order clothing by <strong>June 17</strong>. Pay reunion fees by <strong>July 10</strong>.<br/>
-    You can pay with credit or debit card. A PayPal account is not required.</p>
-    <button onclick="viewCart()" class="view-cart-button">View Cart</button>
-  </header>
-
-  <main id="product-sections">
-    <p>To order: choose a color, size, and quantity for each item you want. Then click <strong>Add to Cart</strong> for each selection. When done, click <strong>View Cart</strong>.</p>
-  </main>
-
-  <footer>
-    <button onclick="viewCart()" class="view-cart-button">View Cart</button>
-  </footer>
-
-  <script src="products.js"></script>
-  <script src="script.js"></script>
+  <header><img src="lauburu.png" alt="Gaviola Family Lauburu Header" /></header>
+  <h1>2025 Gaviola Family Reunion</h1>
+  <p>Place your order below. Clothing orders are accepted until <strong>June 17th</strong>. Reunion fees may be paid until <strong>July 10th</strong>.</p>
+  <p>You may pay by credit or debit card — a PayPal account is not required.</p>
+  <div id="store"></div>
+  <button onclick="viewCart()">View Cart</button>
 </body>
 </html>

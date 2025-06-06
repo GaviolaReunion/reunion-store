@@ -1,6 +1,5 @@
 
 const products = [
-  // T-Shirts
   {
     name: "T Shirt Style 1 - SLF",
     description: "Small Logo Front",
@@ -40,8 +39,6 @@ const products = [
     prices: { infant: 15, youth: 15, adult: 20, plus: 25 },
     colors: ["Grey", "White", "Black"]
   },
-
-  // Hoodies
   {
     name: "Hoodie Style 1 - SLF",
     description: "Small Logo Front",
@@ -69,8 +66,6 @@ const products = [
     prices: { youth: 30, adult: 37, plus: 41 },
     colors: ["Grey", "White", "Black"]
   },
-
-  // Hats
   {
     name: "Hat Style 1",
     description: "",
