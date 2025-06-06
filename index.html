@@ -5,8 +5,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>2025 Gaviola Family Reunion Store</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="styles.css" />
   <script defer src="products.js"></script>
+  <script defer src="script.js"></script>
 </head>
 <body>
   <header>
@@ -15,8 +16,18 @@
     <p>Clothing orders accepted until <strong>June 17</strong>. Reunion fees accepted until <strong>July 10</strong>.</p>
     <p>You can pay with a credit or debit card; a PayPal account is not required.</p>
   </header>
-  <main id="store"></main>
-  <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_cart&business=gaviolafamilyreunion@gmail.com&display=1" 
-     target="_blank" class="view-cart">View Cart</a>
+
+  <main class="container">
+    <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_cart&business=gaviolafamilyreunion@gmail.com&display=1" target="_blank" class="view-cart">View Cart</a>
+    <div class="notice">
+      <strong>Note:</strong> Add each size/color combination separately to the cart. When done, click "View Cart" to complete your order in a new tab.
+    </div>
+    <div id="products"></div>
+    <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_cart&business=gaviolafamilyreunion@gmail.com&display=1" target="_blank" class="view-cart">View Cart</a>
+  </main>
+
+  <footer>
+    <img src="lauburu.png" alt="Lauburu Symbol Footer" />
+  </footer>
 </body>
 </html>
